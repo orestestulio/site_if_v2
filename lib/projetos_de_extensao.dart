@@ -8,17 +8,13 @@ class projetos_de_extensao extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Cor de fundo do app
       backgroundColor: estilos_visuais.temaSecundario,
 
-      // Barra superior com título
       appBar: estilos_visuais.barraSuperior("Projetos de Extensão"),
 
-      // Drawer e barra inferior (caso deseje o mesmo padrão)
       drawer: const MenuLateral(),
       bottomNavigationBar: const BarraInferior(),
 
-      // Botão Flutuante para página inicial, se quiser manter
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: estilos_visuais.botaoFlutuante(
             () {

@@ -44,7 +44,7 @@ class _CadastroPageState extends State<CadastroPage> {
       };
       LoginState.currentUser = user;
 
-      // Exibe mensagem e volta para a tela anterior (ou main, se preferir)
+      // Exibe mensagem e volta para a tela anterior
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Cadastro concluído e login efetuado!')),
       );
@@ -59,13 +59,10 @@ class _CadastroPageState extends State<CadastroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Usa cor secundária do app
       backgroundColor: estilos_visuais.temaSecundario,
 
-      // AppBar com cor principal
       appBar: estilos_visuais.barraSuperior("Cadastrar Novo Usuário"),
 
-      // Corpo
       body: SingleChildScrollView(
         child: Column(
           children: [

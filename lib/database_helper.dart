@@ -11,16 +11,20 @@ class DatabaseHelper {
 
   DatabaseHelper._internal();
 
+  //define um getter assíncrono
+  //Se _db já existir, ela é retornada imediatamente usando return _db!;. O operador ! é usado para afirmar que _db não é null.
   Future<Database> get db async {
     if (_db != null) return _db!;
     _db = await _initDB();
     return _db!;
   }
 
+  //Inicializa o banco de dados
   Future<Database> _initDB() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, "app_database.db");
 
+    //Abre o banco de dados se existir
     return await openDatabase(
       path,
       version: 1,
@@ -28,6 +32,7 @@ class DatabaseHelper {
     );
   }
 
+  //Se não existir é criado aqui
   Future _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE usuarios (

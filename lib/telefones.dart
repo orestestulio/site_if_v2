@@ -6,9 +6,8 @@ import 'menu_lateral.dart';
 class telefones extends StatelessWidget {
   const telefones({Key? key}) : super(key: key);
 
-  /// Método auxiliar para abrir o discador com o número passado.
+  /// Método auxiliar para abrir o discador.
   Future<void> _abrirTelefone(String numero) async {
-    // Remove caracteres não numéricos para formar uma URI válida.
     final apenasDigitos = numero.replaceAll(RegExp(r'[^0-9]'), '');
     final uri = Uri.parse("tel:$apenasDigitos");
 
@@ -19,7 +18,6 @@ class telefones extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Lista de setores e telefones/ramais.
     final List<Map<String, String>> setores = [
       {
         'setor': 'Recepção',

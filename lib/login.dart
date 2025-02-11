@@ -43,17 +43,15 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Usa a cor secundária do aplicativo
       backgroundColor: estilos_visuais.temaSecundario,
 
-      // Usa a AppBar personalizada
       appBar: estilos_visuais.barraSuperior("Fazer Login"),
 
-      // Corpo com scroll, caso seja necessário em telas pequenas
+      // Corpo com scroll
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Banner no topo, se quiser manter a identidade visual
+            // Banner no topo
             SizedBox(
               height: 200,
               width: double.infinity,
@@ -62,10 +60,9 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   // Imagem de fundo
                   Image.asset(
-                    "assets/images/library_woman.png", // Ajuste se quiser outra imagem
+                    "assets/images/library_woman.png",
                     fit: BoxFit.cover,
                   ),
-                  // Sombra leve
                   Container(color: Colors.black26),
                 ],
               ),
@@ -88,7 +85,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 24),
 
-                  // Botão de login usando o estilo do app
                   SizedBox(
                     width: 220,
                     child: ElevatedButton(

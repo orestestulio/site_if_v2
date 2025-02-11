@@ -126,7 +126,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-/// Slider com PageView, como já existia
+/// Slider com PageView
 class SliderDeImagens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

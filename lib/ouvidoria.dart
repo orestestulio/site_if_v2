@@ -6,7 +6,7 @@ import 'menu_lateral.dart';
 class ouvidoria extends StatelessWidget {
   const ouvidoria({Key? key}) : super(key: key);
 
-  /// Método para abrir links no navegador ou app padrão.
+  /// Método para abrir links no navegador.
   Future<void> _abrirLink(String url) async {
     final uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
@@ -14,16 +14,15 @@ class ouvidoria extends StatelessWidget {
     }
   }
 
-  /// Abre o discador (telefone) ou WhatsApp (se usar link wa.me).
+  /// Abre o discador (telefone).
   Future<void> _abrirTelefone(String telefone) async {
-    // Exemplo: "tel:53997029358" abre discador
     final uri = Uri.parse("tel:$telefone");
     if (!await launchUrl(uri)) {
       throw 'Não foi possível discar para: $telefone';
     }
   }
 
-  /// Abre app de e-mail se usar "mailto:"
+  /// Abre app de e-mail"
   Future<void> _abrirEmail(String email) async {
     final uri = Uri.parse("mailto:$email");
     if (!await launchUrl(uri)) {
@@ -51,7 +50,6 @@ class ouvidoria extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // --- Apresentação ---
             _buildTitle("Apresentação"),
             _buildParagraph(
               "A Ouvidoria é um serviço disponibilizado pelo Instituto Federal de Educação, Ciência e Tecnologia Sul-rio-grandense, "
@@ -60,7 +58,6 @@ class ouvidoria extends StatelessWidget {
                   "Atualmente a Ouvidoria Institucional tem como responsável a servidora Veridiana Krolow Bosenbecker.",
             ),
 
-            // Link para Currículo
             _buildParagraph("Currículo: "),
             _buildLinkLine(
               "http://lattes.cnpq.br/9025007677890059",
@@ -74,12 +71,10 @@ class ouvidoria extends StatelessWidget {
                     "Para registrar sua manifestação, acesse o Fala.BR."
             ),
 
-            // Botão ou link para Fala.BR
             _buildLinkLine("Fala.BR", "https://falabr.cgu.gov.br/"),
 
             const SizedBox(height: 24),
 
-            // --- Tipos de Manifestações ---
             _buildTitle("Tipos de Manifestações"),
             _buildParagraph(
                 "SOLICITAÇÃO DE ACESSO À INFORMAÇÃO: solicitar informações públicas de órgãos ou entes do Poder Executivo Federal;\n\n"
@@ -100,10 +95,8 @@ class ouvidoria extends StatelessWidget {
                     "ou do e-mail.\n"
             ),
 
-            // Telefone clicável
             _buildLinkLine("Telefone / WhatsApp: (53) 99702-9358", "tel:53997029358"),
 
-            // E-mail clicável
             _buildLinkLine("E-mail: ouvidoria@ifsul.edu.br", "mailto:ouvidoria@ifsul.edu.br"),
 
             const SizedBox(height: 16),
@@ -113,7 +106,6 @@ class ouvidoria extends StatelessWidget {
             ),
             const SizedBox(height: 16),
 
-            // Banner fala.png
             Image.asset(
               "assets/images/fala.png",
               fit: BoxFit.cover,
@@ -124,7 +116,6 @@ class ouvidoria extends StatelessWidget {
     );
   }
 
-  // --- Métodos auxiliares de formatação ---
 
   Widget _buildTitle(String text) {
     return Padding(
@@ -148,7 +139,7 @@ class ouvidoria extends StatelessWidget {
     );
   }
 
-  /// Cria um widget de link (texto sublinhado e clicável).
+  /// Cria um widget de link.
   Widget _buildLinkLine(String text, String url) {
     return InkWell(
       onTap: () => _abrirLink(url),

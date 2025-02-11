@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart'; // Para abrir links externos
 
 import 'estilos_visuais.dart';
-// Importe aqui as novas classes que contêm o Drawer e o BottomNavigationBar
-import 'menu_lateral.dart'; // <-- Contém MenuLateral e BarraInferior
+import 'menu_lateral.dart';
 
 class espaco_do_estudante extends StatelessWidget {
   const espaco_do_estudante({Key? key}) : super(key: key);
@@ -11,23 +10,17 @@ class espaco_do_estudante extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Usa a cor secundária definida em estilos_visuais
       backgroundColor: estilos_visuais.temaSecundario,
 
-      // Usa a appBar do estilos_visuais, passando o título
       appBar: estilos_visuais.barraSuperior("Espaço do Estudante"),
 
-      // Drawer agora vem da classe separada (MenuLateral)
       drawer: const MenuLateral(),
 
-      // Barra inferior agora vem da classe separada (BarraInferior)
       bottomNavigationBar: const BarraInferior(),
 
-      // FAB (botão flutuante) permanece local ou pode ir para estilos_visuais
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: estilos_visuais.botaoFlutuante(
             () {
-          // Exemplo de ação: navegar de volta à Home
           Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
         },
         Icons.home,
@@ -38,14 +31,12 @@ class espaco_do_estudante extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Imagem de destaque no topo
             SizedBox(
               height: 200,
               width: double.infinity,
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  // Imagem de fundo
                   Image.asset(
                     "assets/images/library_woman.png",
                     fit: BoxFit.cover,
@@ -69,7 +60,7 @@ class espaco_do_estudante extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // Grid com botões coloridos (emojis)
+            // Grid com botões coloridos
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: GridView.count(
@@ -89,7 +80,7 @@ class espaco_do_estudante extends StatelessWidget {
                         _abrirLink("https://www.ifsul.edu.br/bibliotecas"),
                   ),
 
-                  // Estágios (sem link específico, se tiver: substitua aqui)
+                  // Estágios
                   _buildMenuButton(
                     cor: Colors.orange,
                     titulo: "Estágios",
@@ -107,7 +98,7 @@ class espaco_do_estudante extends StatelessWidget {
                     onTap: () => _abrirLink("http://ead.ifsul.edu.br/"),
                   ),
 
-                  // Bolsas (sem link específico)
+                  // Bolsas
                   _buildMenuButton(
                     cor: Colors.blue,
                     titulo: "Bolsas",
@@ -116,7 +107,7 @@ class espaco_do_estudante extends StatelessWidget {
                     onTap: () {},
                   ),
 
-                  // Assistência (sem link específico)
+                  // Assistência
                   _buildMenuButton(
                     cor: Colors.purple,
                     titulo: "Assistência",
@@ -161,7 +152,7 @@ class espaco_do_estudante extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // Lista de links: Perguntas Frequentes, SISU, Ações Inclusivas
+            // Lista de links:
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Column(
@@ -189,7 +180,7 @@ class espaco_do_estudante extends StatelessWidget {
     );
   }
 
-  //=== Função para abrir link usando url_launcher ===
+  //Função para abrir link usando url_launcher
   Future<void> _abrirLink(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
@@ -197,7 +188,7 @@ class espaco_do_estudante extends StatelessWidget {
     }
   }
 
-  //=== Botão colorido com emoji (para o Grid)
+  //Botão colorido com emoji
   Widget _buildMenuButton({
     required Color cor,
     required String titulo,
@@ -242,7 +233,7 @@ class espaco_do_estudante extends StatelessWidget {
     );
   }
 
-  //=== ListTile simples (para links no final)
+  //ListTile simples (para links no final)
   Widget _buildLinkTile({
     required String titulo,
     required VoidCallback onTap,

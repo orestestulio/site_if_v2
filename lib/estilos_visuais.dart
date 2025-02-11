@@ -35,8 +35,6 @@ class estilos_visuais {
               ),
             ),
           ),
-          // Aqui usamos o operador spread para inserir
-          // os ListTile (ou outros widgets) passados via parâmetro.
           ...itensMenu,
         ],
       ),

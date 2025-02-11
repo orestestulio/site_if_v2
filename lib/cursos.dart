@@ -26,8 +26,8 @@ class cursos extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
           child: GridView.count(
-            crossAxisCount: 1,           // 1 banner por linha
-            childAspectRatio: 3.2,       // ajusta a proporção (largura:altura)
+            crossAxisCount: 1,
+            childAspectRatio: 3.2,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
             shrinkWrap: true,
@@ -60,7 +60,7 @@ class cursos extends StatelessWidget {
     );
   }
 
-  /// Função genérica para abrir links no navegador
+  /// Função para abrir links no navegador
   Future<void> _abrirLink(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
@@ -68,7 +68,7 @@ class cursos extends StatelessWidget {
     }
   }
 
-  /// Cria o item do grid (banner) com a imagem e ação de clique
+  /// Cria o item do grid com a imagem
   Widget _buildCourseItem({
     required String imagePath,
     required VoidCallback onTap,

@@ -36,8 +36,6 @@ class processo_seletivo extends StatelessWidget {
                     "assets/images/processo_seletivo_banner.png",
                     fit: BoxFit.cover,
                   ),
-                  // Removido o Container com .withOpacity(0.3) para não haver sombra
-                  // (Se quiser texto, mantenha um Center com Text, senão remova-o)
                   const Center(
                     child: Text(
                       " ",
@@ -54,7 +52,7 @@ class processo_seletivo extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // Grid com os blocos coloridos (Vestibular, SISU, etc.)
+            // Grid com os blocos (Vestibular, SISU, etc.)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: GridView.count(
@@ -98,7 +96,6 @@ class processo_seletivo extends StatelessWidget {
                     subtitulo: "",
                     emoji: "📝",
                     onTap: () {
-                      // Ajuste o link
                     },
                   ),
                   _buildMenuButton(
@@ -107,7 +104,6 @@ class processo_seletivo extends StatelessWidget {
                     subtitulo: "",
                     emoji: "📰",
                     onTap: () {
-                      // Ajuste o link
                     },
                   ),
                 ],
@@ -116,7 +112,6 @@ class processo_seletivo extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // Seção de "Ingresso para cotas raciais no IFSul"
             Container(
               color: Colors.cyan[100],
               padding: const EdgeInsets.all(16.0),
@@ -168,7 +163,7 @@ class processo_seletivo extends StatelessWidget {
     );
   }
 
-  // Função para abrir links com url_launcher
+  // Função para abrir links
   Future<void> _abrirLink(String url) async {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
@@ -176,7 +171,7 @@ class processo_seletivo extends StatelessWidget {
     }
   }
 
-  /// Cria cada bloco colorido no grid (emoji + título + subtítulo)
+  /// Cria cada bloco no grid
   Widget _buildMenuButton({
     required Color cor,
     required String titulo,

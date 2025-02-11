@@ -8,7 +8,7 @@ import 'processo_seletivo.dart';
 import 'espaco_do_servidor.dart';
 import 'cursos.dart';
 import 'configuracoes.dart';
-import 'ouvidoria.dart'; // <-- Importamos a tela de Ouvidoria novamente
+import 'ouvidoria.dart';
 import 'telefones.dart';
 
 class MenuLateral extends StatelessWidget {

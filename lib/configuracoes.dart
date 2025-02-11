@@ -30,12 +30,9 @@ class _ConfiguracoesState extends State<Configuracoes> {
       drawer: const MenuLateral(),
       bottomNavigationBar: const BarraInferior(),
 
-      // Define a posição do FAB (no centro, encaixado na barra inferior)
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // Cria o botão usando a função do estilos_visuais
       floatingActionButton: estilos_visuais.botaoFlutuante(
             () {
-          // Ao clicar, volta para a página inicial
           Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
         },
         Icons.home,
