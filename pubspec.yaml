@@ -1,0 +1,43 @@
+name: site_if_v2
+description: "App do site do IFSul."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+# Todas as dependências vão aqui, no mesmo nível que 'flutter:'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  url_launcher: ^6.1.7    # Adicione aqui
+  sqflite: ^2.2.8
+  path_provider: ^2.0.11
+    # ou a versão mais recente disponível
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/logo.jpg
+    - assets/images/image1.jpg
+    - assets/images/image2.jpg
+    - assets/images/library_woman.png
+    - assets/images/servidor_people.png
+    - assets/images/processo_seletivo_banner.png
+    - assets/images/youtube_placeholder.png
+    - assets/images/cursos/automacao.png
+    - assets/images/cursos/ambiental.png
+    - assets/images/cursos/informatica.png
+    - assets/images/cursos/eletrotecnica.png
+    - assets/images/cursos/analise_desenvolvimento.png
+    - assets/images/cursos/pesquisa.png
+    - assets/images/cursos/extensao.png
+    - assets/images/fala.png
